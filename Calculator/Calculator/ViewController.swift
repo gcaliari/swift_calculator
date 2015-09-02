@@ -6,7 +6,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var display: UILabel!
     
     var userIsINTheMiddleOfTypingANumber = false
-    var operandStack = Array<Double>()
+    let brain = CalculatorBrain()
+    
     var displayValue: Double {
         get {
             return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
@@ -30,47 +31,42 @@ class ViewController: UIViewController {
 
     
     @IBAction func operate(sender: UIButton) {
-        let operation = sender.currentTitle!
         if userIsINTheMiddleOfTypingANumber {
             enter()
         }
-        switch operation {
-        case "+"   : performOperation { $0 + $1 }
-        case "-"   : performOperation { $0 - $1 }
-        case "*"   : performOperation { $0 * $1 }
-        case "/"   : performOperation { $0 / $1 }
-        case "sqrt": performOperation { sqrt($0) }
-        default: break
-        }
-    }
-    
-    private func performOperation(operation: (Double, Double) -> Double) {
-        if operandStack.count >= 2 {
-            displayValue = operation(operandStack.removeLast(), operandStack.removeLast())
-            enter()
-        }
-    }
-    
-    private func performOperation(operation: Double -> Double) {
-        if operandStack.count >= 1 {
-            displayValue = operation(operandStack.removeLast())
-            enter()
+        if let operation = sender.currentTitle {
+            if let result = brain.performOperation( operation) {
+                displayValue = result
+            } else {
+                displayValue = 0
+            }
         }
     }
     
     @IBAction func enter() {
         userIsINTheMiddleOfTypingANumber = false
-//        operandStack.append(
-//            display.text.flatMap {
-//                number in NSNumberFormatter().numberFromString(number)
-//            }!.doubleValue
-//        )
-        operandStack.append(displayValue)
-        print("-------operandStack=\(operandStack)")
+        if let result = brain.pushOperand( displayValue ) {
+            displayValue = result
+        } else {
+            displayValue = 0
+        }
     }
 
     
+    @IBAction func evaluate() {
+        if(userIsINTheMiddleOfTypingANumber) {
+            enter()
+        }
+        if let result = brain.evaluate() {
+            print("-------result=\(result)")
+            displayValue = result
+        }
+        
+    }
     
+    @IBAction func clear() {
+        brain.clear()
+    }
     
 //    override func viewDidLoad() {
 //        super.viewDidLoad()

@@ -14,6 +14,7 @@
 		470359BA1B8E6F970051BEEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 470359B81B8E6F970051BEEE /* LaunchScreen.storyboard */; };
 		470359C51B8E6F970051BEEE /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470359C41B8E6F970051BEEE /* CalculatorTests.swift */; };
 		470359D01B8E6F970051BEEE /* CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470359CF1B8E6F970051BEEE /* CalculatorUITests.swift */; };
+		470359DF1B950A4B0051BEEE /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470359DE1B950A4B0051BEEE /* CalculatorBrain.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		470359CB1B8E6F970051BEEE /* CalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		470359CF1B8E6F970051BEEE /* CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorUITests.swift; sourceTree = "<group>"; };
 		470359D11B8E6F970051BEEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		470359DE1B950A4B0051BEEE /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				470359DD1B8F99280051BEEE /* Supporting Files */,
 				470359B11B8E6F970051BEEE /* ViewController.swift */,
 				470359B31B8E6F970051BEEE /* Main.storyboard */,
+				470359DE1B950A4B0051BEEE /* CalculatorBrain.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				470359DF1B950A4B0051BEEE /* CalculatorBrain.swift in Sources */,
 				470359B21B8E6F970051BEEE /* ViewController.swift in Sources */,
 				470359B01B8E6F970051BEEE /* AppDelegate.swift in Sources */,
 			);
