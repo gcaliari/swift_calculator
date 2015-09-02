@@ -66,6 +66,7 @@ class ViewController: UIViewController {
     
     @IBAction func clear() {
         brain.clear()
+        displayValue = 0
     }
     
 //    override func viewDidLoad() {
