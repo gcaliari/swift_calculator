@@ -4,3 +4,6 @@
 .idea_modules/
 
 
+# Mac Stuff
+*.DS_Store
+
