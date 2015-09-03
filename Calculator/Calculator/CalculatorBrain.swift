@@ -29,6 +29,25 @@ class CalculatorBrain {
 
     }
     
+    var program: AnyObject { //guaranteed to be a PropertyList
+        get {
+            return opStack.map{ $0.description }
+        }
+        set {
+            if let opSymbols = newValue as? Array<String> {
+                var newOpStack = [Op]()
+                opSymbols.forEach{
+                    if let op = knownOps[$0] {
+                        newOpStack.append( op )
+                    } else if let operand = NSNumberFormatter().numberFromString($0)?.doubleValue {
+                        newOpStack.append( .Operand(operand) )
+                    }
+                }
+                opStack = newOpStack
+            }
+        }
+    }
+    
     func evaluate() -> Double? {
         let (result, _) = evaluate(opStack)
         return result
